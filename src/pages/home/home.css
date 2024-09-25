@@ -1,0 +1,22 @@
+@import url("/src/variables.css");
+
+.background-image-container {
+  background-image: url("/src/asset/homepage/background-image.jpg");
+  background-position: center;
+  background-size: cover;
+  height: 500px;
+
+  position: relative;
+}
+
+.heading-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 5rem;
+  color: var(--clr-orange);
+  background-color: var(--clr-white-transparent-25);
+  padding: 2rem;
+  border-radius: 15px;
+}
