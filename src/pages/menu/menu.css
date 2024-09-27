@@ -8,7 +8,7 @@
 
 .menu-item-section {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 33.3%));
+  grid-template-columns: repeat(auto-fit, minmax(300px, 0.33fr));
   place-content: center;
   width: 100%;
   padding: 2rem;
@@ -20,4 +20,12 @@
   border: 1px solid #333;
   padding: 1rem;
   border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+ 
+}
+
+.menu-item-card-image img {
+  max-width: 100px;
 }

@@ -1,11 +1,15 @@
 import "./menu.css";
+import cheeseBurger from "/src/asset/menu/cheese-burger.jpeg";
+import spicyChicken from "/src/asset/menu/spicy-chicken-burger.jpeg"; 
+import triplePatty from "/src/asset/menu/triple-patty-burger.jpeg"; 
+
 
 export default function menu() {
   // init
   const itemList = [
-    new MenuItem("burger1", 15, ""),
-    new MenuItem("burger2", 15, ""),
-    new MenuItem("burger3", 15, ""),
+    new MenuItem("Cheese Burger", 15, cheeseBurger ),
+    new MenuItem("Spicy Chicken", 15, spicyChicken ),
+    new MenuItem("Triple Patty", 15, triplePatty),
   ];
 
   // element creation
@@ -28,10 +32,7 @@ export default function menu() {
   // tree
   section.appendChild(h1);
   section.appendChild(itemSection);
-
-  itemList.forEach((item) => {
-    itemSection.appendChild(card(item));
-  });
+  appendElements(itemSection, itemList)
 
   return section;
 }
@@ -46,6 +47,7 @@ function card({ title, price, imageURL }) {
   // element creation
   const article = document.createElement("article");
   const backgroundImageContainer = document.createElement("div");
+  const imgElem = document.createElement("img");
   const titleElem = document.createElement("h2");
   const priceElem = document.createElement("p");
 
@@ -60,11 +62,24 @@ function card({ title, price, imageURL }) {
 
   // contents
   titleElem.innerText = title;
-  priceElem.innerText = price;
+  priceElem.innerText =` \$${price}`;
+  imgElem.src = imageURL;
+  imgElem.alt = `image of a ${title}`;
+
 
   // tree
+  
+  article.appendChild(backgroundImageContainer)
   article.appendChild(titleElem);
   article.appendChild(priceElem);
 
+  backgroundImageContainer.appendChild(imgElem);
+
   return article;
+}
+
+function appendElements(targetElement, items) {
+  items.forEach((item) => {
+    targetElement.appendChild(card(item));
+  });
 }
